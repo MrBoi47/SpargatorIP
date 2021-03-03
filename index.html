@@ -1,0 +1,137 @@
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title>IP Grabber</title>
+		<link href="indexstyle.css" rel="stylesheet" type="text/css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body bgcolor="#20C20E">
+
+
+
+					<div class="titles">Spargator de IP</div>
+		<hr/>
+
+		<div class="infob">
+		<p class="infotypes">Informatiile tale:</p>
+
+		<p id="ip" class="info1"></p>
+		<p id="ip2" class="info2"></p>
+		<p id="continent" class="info1"></p>
+		<p id="continent2" class="info2"></p>
+		<p id="country" class="info1"></p>
+		<p id="country2" class="info2"></p>
+		<p id="city" class="info1"></p>
+		<p id="city2" class="info2"></p>
+	</div>
+		<hr/>
+		<div class="infob">
+		<p class="infotypes">Informatiile tintei:</p>
+		<p id="targetn" class="info1"></p>
+		<p id="targetip" class="info2">...</p>
+		<br/>
+	</div>
+	<hr/>
+	<div class="bottom"><p>Created By Octavian</p></div>
+
+		<script>
+			// greetings thing ////////////////////////////////////////////////////////
+
+			var target = prompt("Ai cui IP vrei sa afli? ");
+
+			///////////////////////////////////////////////////////////////////////////
+		</script>
+		<script>
+			// your info thing /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+			 $.get('https://extreme-ip-lookup.com/json/', function(r)
+			 { document.getElementById("ip").innerHTML = "IP-ul tau: "; 
+			   document.getElementById("ip2").innerHTML =r.query+ "<br/><br/><br/><br/>";
+			   document.getElementById("continent").innerHTML = "Continentul tau: ";
+			   document.getElementById("continent2").innerHTML =r.continent + "<br/><br/><br/><br/>";
+			   document.getElementById("country").innerHTML ="Tara ta: ";
+			   document.getElementById("country2").innerHTML =r.country + "<br/><br/><br/><br/>";
+			   document.getElementById("city").innerHTML ="Orasul tau: ";
+			   document.getElementById("city2").innerHTML =r.city+ "<br/><br/><br/><br/>";
+			 });
+
+			////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		</script>
+
+		<script>
+			//// generator IP //////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+			var a = Math.ceil((Math.random() * 10)-1);
+			var a1 = a.toString();
+			var b = Math.ceil((Math.random() * 10)-1);
+			var b1 = b.toString();
+			var c = Math.ceil((Math.random() * 10)-1);
+			var c1 = c.toString();
+			var d = Math.ceil((Math.random() * 10)-1);
+			var d1 = d.toString();
+			var e = Math.ceil((Math.random() * 10)-1);
+			var e1 = e.toString();
+			var f = Math.ceil((Math.random() * 10)-1);
+			var f1 = f.toString();
+			var g = Math.ceil((Math.random() * 10)-1);
+			var g1 = g.toString();
+			var h = Math.ceil((Math.random() * 10)-1);
+			var h1 = h.toString();
+			var i = Math.ceil((Math.random() * 10)-1);		
+			var i1 = i.toString();
+			var j = Math.ceil((Math.random() * 10)-1);
+			var j1 = j.toString();
+			var k = Math.ceil((Math.random() * 10)-1);
+			var k1 = k.toString();
+		
+			function spip(){
+			var tp = a1 + b1 + c1 + "." + d1 + e1 + f1 + "." + g1 + h1 + i1 + "." + j1 + k1;
+			var trgtip= tp.toString();
+			document.getElementById("targetip").innerHTML=trgtip;
+		}setInterval(spip, 3000);
+
+			////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+			///// nume ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+			var nume= target.toString();
+			var spune= "IP-ul lui " + nume + ": "
+			document.getElementById("targetn").innerHTML=spune;
+
+			////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		</script>
+
+
+		<script>
+			//// failsafe ////////////////////////////////////////////////////////////////////////////////////////////////////////
+			function isEmptyOrSpaces(str)
+			{
+    		return str === null || str.match(/^ *$/) !== null;
+			}
+
+			if(isEmptyOrSpaces(target))
+			{
+				trgtip = "XXX.XXX.XXX.XX";
+				spune = "Nimeni nu este tinta."
+				document.getElementById("targetip").innerHTML=trgtip;
+				document.getElementById("targetn").innerHTML=spune;
+				
+			}
+
+			function nimic(){
+			if(isEmptyOrSpaces(target))
+			{
+				trgtip = "XXX.XXX.XXX.XX";
+				spune = "Nimeni nu este tinta."
+				document.getElementById("targetip").innerHTML=trgtip;
+				document.getElementById("targetn").innerHTML=spune;
+				
+			}}
+			setInterval(nimic, 3000)
+			///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		</script>
+
+	</body>
+	</html>
